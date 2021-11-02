@@ -11,25 +11,32 @@
     //all'interno del ciclo for aggiungo un addEventListner click sui div quadrato
         //al click il quadrato selezionato cambia colore
 
-
-
 var gridContainer = document.getElementById("grid-container");
 
 var difficulty = parseInt(prompt("Scegli il livello di difficoltà: 1, 2 o 3"));
 
-
-function gridGenerator(row, square) {
-
+function gridGenerator(row, column) {
+    let counter = 1;
+    
     for(let i = 0; i < row; i++) {
         let rowElement = document.createElement("div");
         rowElement.className = "row";
         gridContainer.appendChild(rowElement);
 
-        for (var j = 0; j < square; j++) {
-            var squareElement = document.createElement("div");
+        for (let j = 0; j < column; j++) {
+            let squareElement = document.createElement("div");
             squareElement.className = "square";
             rowElement.append(squareElement);
-        }       
+
+            squareElement.addEventListener("click",
+                function(){
+                    squareElement.classList.add("active");                
+                }
+            )
+            
+            squareElement.append(counter);
+            counter++;
+        }   
     }
 }
 
@@ -41,6 +48,3 @@ if (difficulty === 1) {
 } else if (difficulty === 3) {
     gridGenerator(7, 7)
 }
-
-
-
