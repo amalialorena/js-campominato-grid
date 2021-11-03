@@ -6,13 +6,14 @@
 
 
 #grid-container {
-    display:flex;
+    /* display:flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+    margin-top: 200px;
     width: 90%;
     margin: 0 auto;
-
 }
+
 .square {
     width: 50px;
     height: 50px;

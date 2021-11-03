@@ -15,22 +15,30 @@ var gridContainer = document.getElementById("grid-container");
 
 var difficulty = parseInt(prompt("Scegli il livello di difficoltà: 1, 2 o 3"));
 
-function gridGenerator(row, column) {
+function gridGenerator(row, square) {
     let counter = 1;
-    
+    //genero un array di 16 numeri univoci casuali
+        //il range di numeri generati dipende dal livello di difficoltà scelto
     for(let i = 0; i < row; i++) {
         let rowElement = document.createElement("div");
         rowElement.className = "row";
         gridContainer.appendChild(rowElement);
 
-        for (let j = 0; j < column; j++) {
+        for (let j = 0; j < square; j++) {
             let squareElement = document.createElement("div");
             squareElement.className = "square";
             rowElement.append(squareElement);
 
             squareElement.addEventListener("click",
                 function(){
-                    squareElement.classList.add("active");                
+                    squareElement.classList.add("active");    
+                    //ciclo dell'array/bombe
+                    //condizioni : se il numero della casella cliccata è presente nell'array bombe :
+                    //la partita termina
+                         //faccio vedere tutte le bombe
+                         //faccio vedere il punteggio -> numero di click
+                         //disabilito il click
+                             
                 }
             )
             
@@ -39,7 +47,6 @@ function gridGenerator(row, column) {
         }   
     }
 }
-
 
 if (difficulty === 1) {
     gridGenerator(10, 10);
